@@ -5,13 +5,18 @@ import requests
 
 @app.route('/')
 @app.route('/index')
-@app.route('/jrandleman')
 def index():
     user = {'username': 'jrandleman'}
     classes = [{'classInfo': {'code': 'CSC324', 'title': 'DevOps'}, 'instructor': 'Baoqiang Yan'},
                {'classInfo': {'code': 'CSC184', 'title': 'Python Programming'}, 'instructor': 'Evan Noynaert'}]
     return render_template('index.html', title='Home', user=user, classes=classes)
 
+
+@app.route('/jrandleman')
+def username():
+    if request.method == 'POST':
+        return redirect(url_for('jrandleman'))
+    return render_template('jrandleman.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -23,7 +28,7 @@ def login():
             dict = response.json()
             if dict['Success']:
                 flash('Welcome user {}({})! You opted for remember_me={}'.format(form.username.data, dict['uid'], form.remember_me.data))
-                return redirect(url_for('jrandleman'))
+                return render_template('jrandleman.html')
             else:
                 flash('Invalid credentials')
     else:
@@ -55,6 +60,6 @@ def loginAPI():
         password = json_data["password"]
     else:
         return jsonify(Success=False)
-    if username == 'jrandleman' and password == '123':
+    if username == 'byan' and password == '123':
         return jsonify(Success=True, uid=11)
     return jsonify(Success=False)
