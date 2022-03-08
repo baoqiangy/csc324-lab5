@@ -5,8 +5,9 @@ import requests
 
 @app.route('/')
 @app.route('/index')
+@app.route('/jrandleman')
 def index():
-    user = {'username': 'byan'}
+    user = {'username': 'jrandleman'}
     classes = [{'classInfo': {'code': 'CSC324', 'title': 'DevOps'}, 'instructor': 'Baoqiang Yan'},
                {'classInfo': {'code': 'CSC184', 'title': 'Python Programming'}, 'instructor': 'Evan Noynaert'}]
     return render_template('index.html', title='Home', user=user, classes=classes)
@@ -22,7 +23,7 @@ def login():
             dict = response.json()
             if dict['Success']:
                 flash('Welcome user {}({})! You opted for remember_me={}'.format(form.username.data, dict['uid'], form.remember_me.data))
-                return redirect(url_for('index'))
+                return redirect(url_for('jrandleman'))
             else:
                 flash('Invalid credentials')
     else:
@@ -54,6 +55,6 @@ def loginAPI():
         password = json_data["password"]
     else:
         return jsonify(Success=False)
-    if username == 'byan' and password == '123':
+    if username == 'jrandleman' and password == '123':
         return jsonify(Success=True, uid=11)
     return jsonify(Success=False)
