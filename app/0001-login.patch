@@ -1,0 +1,41 @@
+From c35444cf5e74c697194da6a4944255e3431d3b87 Mon Sep 17 00:00:00 2001
+From: mkoontz1 <mkoontz1@missouriwestern.edu>
+Date: Wed, 9 Mar 2022 14:10:47 -0800
+Subject: [PATCH] login
+
+---
+ app/routes.py | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/app/routes.py b/app/routes.py
+index 4e113a4..13c3cd8 100644
+--- a/app/routes.py
++++ b/app/routes.py
+@@ -5,6 +5,7 @@ import requests
+ 
+ @app.route('/')
+ @app.route('/index')
++@app.route('/username')
+ def index():
+     user = {'username': 'byan'}
+     classes = [{'classInfo': {'code': 'CSC324', 'title': 'DevOps'}, 'instructor': 'Baoqiang Yan'},
+@@ -22,7 +23,7 @@ def login():
+             dict = response.json()
+             if dict['Success']:
+                 flash('Welcome user {}({})! You opted for remember_me={}'.format(form.username.data, dict['uid'], form.remember_me.data))
+-                return redirect(url_for('index'))
++                return redirect(url_for('username'))
+             else:
+                 flash('Invalid credentials')
+     else:
+@@ -54,6 +55,6 @@ def loginAPI():
+         password = json_data["password"]
+     else:
+         return jsonify(Success=False)
+-    if username == 'byan' and password == '123':
++    if username == 'mkoontz1' and password == '567':
+         return jsonify(Success=True, uid=11)
+     return jsonify(Success=False)
+-- 
+2.31.1
+
