@@ -22,7 +22,7 @@ def login():
             dict = response.json()
             if dict['Success']:
                 flash('Welcome user {}({})! You opted for remember_me={}'.format(form.username.data, dict['uid'], form.remember_me.data))
-                return redirect(url_for('index'))
+                return redirect(url_for('cstewart2'))
             else:
                 flash('Invalid credentials')
     else:
