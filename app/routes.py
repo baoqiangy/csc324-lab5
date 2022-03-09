@@ -22,7 +22,7 @@ def login():
             dict = response.json()
             if dict['Success']:
                 flash('Welcome user {}({})! You opted for remember_me={}'.format(form.username.data, dict['uid'], form.remember_me.data))
-                return redirect(url_for('index'))
+                return redirect(url_for('hwu'))
             else:
                 flash('Invalid credentials')
     else:
@@ -45,6 +45,8 @@ def jsonTest():
     }
     return jsonify(instructor)
 
+@app.route('/hwu')
+    return render_template('hwu.html', title='username)
 
 @app.route('/loginapi', methods=['GET', 'POST'])
 def loginAPI():
@@ -54,6 +56,6 @@ def loginAPI():
         password = json_data["password"]
     else:
         return jsonify(Success=False)
-    if username == 'byan' and password == '123':
+    if username == 'hwu' and password == '567':
         return jsonify(Success=True, uid=11)
     return jsonify(Success=False)
