@@ -33,6 +33,10 @@ def login():
 
     return render_template('login.html', title='Sign In', form=form)
 
+@app.route('/cstewart2')
+def cstewart2():
+    return render_template('cstewart2.html',title="Chris Stewart")
+
 @app.route('/json')
 def jsonTest():
     # return jsonify(list(range(5)))
