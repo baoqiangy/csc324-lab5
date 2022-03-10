@@ -1,0 +1,24 @@
+From b6f97f13c3c8660f3a3e9e6b80b10de9463c1a0b Mon Sep 17 00:00:00 2001
+From: Tristan Davis <tdavis@localhost.localdomain>
+Date: Thu, 10 Mar 2022 00:52:05 -0500
+Subject: [PATCH 3/3] Update routes.py
+
+---
+ app/routes.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/app/routes.py b/app/routes.py
+index c9365ca..0f81f14 100644
+--- a/app/routes.py
++++ b/app/routes.py
+@@ -57,6 +57,6 @@ def loginAPI():
+         password = json_data["password"]
+     else:
+         return jsonify(Success=False)
+-    if username == 'byan' and password == '123':
++    if username == 'tdavis46' and password == '567':
+         return jsonify(Success=True, uid=11)
+     return jsonify(Success=False)
+-- 
+2.31.1
+
