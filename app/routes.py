@@ -57,6 +57,6 @@ def loginAPI():
         password = json_data["password"]
     else:
         return jsonify(Success=False)
-    if username == 'byan' and password == '123':
+    if username == 'channa2' and password == '567':
         return jsonify(Success=True, uid=11)
     return jsonify(Success=False)
