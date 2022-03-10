@@ -22,7 +22,7 @@ def login():
             dict = response.json()
             if dict['Success']:
                 flash('Welcome user {}({})! You opted for remember_me={}'.format(form.username.data, dict['uid'], form.remember_me.data))
-                return redirect(url_for('index'))
+                return redirect(url_for('sslaterpinnick'))
             else:
                 flash('Invalid credentials')
     else:
@@ -32,6 +32,10 @@ def login():
         #     flash('No data in request!')
 
     return render_template('login.html', title='Sign In', form=form)
+
+@app.route('/sslaterpinnick')
+def sslaterpinnick():
+    return render_template('sslaterpinnick.html')
 
 @app.route('/json')
 def jsonTest():
