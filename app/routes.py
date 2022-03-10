@@ -11,6 +11,11 @@ def index():
                {'classInfo': {'code': 'CSC184', 'title': 'Python Programming'}, 'instructor': 'Evan Noynaert'}]
     return render_template('index.html', title='Home', user=user, classes=classes)
 
+@app.route('/ilsouzabsb.html')
+def ilsouzabsb():
+	return render_template('ilsouzabsb.html', title='ilsouzabsb html')
+
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
