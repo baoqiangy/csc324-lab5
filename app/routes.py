@@ -11,6 +11,9 @@ def index():
                {'classInfo': {'code': 'CSC184', 'title': 'Python Programming'}, 'instructor': 'Evan Noynaert'}]
     return render_template('index.html', title='Home', user=user, classes=classes)
 
+@app.route('/tdavis46')
+def tdavis46():
+    return render_template('tdavis46.html', title='Tristan Davis')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -22,7 +25,7 @@ def login():
             dict = response.json()
             if dict['Success']:
                 flash('Welcome user {}({})! You opted for remember_me={}'.format(form.username.data, dict['uid'], form.remember_me.data))
-                return redirect(url_for('index'))
+                return redirect(url_for('tdavis46'))
             else:
                 flash('Invalid credentials')
     else:
